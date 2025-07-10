@@ -51,7 +51,7 @@ class Cliente(models.Model):
         blank=True,
     )
     
-    numero_celular = models.IntegerField(
+    numero_celular = models.BigIntegerField(
         null=True,
         blank=True
     )
@@ -68,7 +68,7 @@ class Cliente(models.Model):
         blank=True,
         help_text='Trabajo')
     
-    numero_telefonico = models.IntegerField(
+    numero_telefonico = models.BigIntegerField(
         null=True,
         blank=True
     )

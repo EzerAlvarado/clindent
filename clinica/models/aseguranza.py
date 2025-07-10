@@ -13,8 +13,8 @@ class Aseguranza(models.Model):
     class Meta:
         db_table = 'aseguranzas'
         ordering = ['pk']
-        verbose_name = 'Mesa'
-        verbose_name_plural = 'Mesas'
+        verbose_name = 'Aseguranza'
+        verbose_name_plural = 'Aseguranzas'
         permissions = [
             ['autorizar_aseguranza', f'Puede Autorizar {verbose_name_plural}'],
             ['viewcrud_aseguranza', f'Puede Visualizar {verbose_name_plural} en el menú'],
