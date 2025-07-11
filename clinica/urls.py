@@ -5,7 +5,6 @@ from . import views
 router = DefaultRouter()
 router.register('clientes', views.ClienteViewSet)
 router.register('aseguranzas', views.AseguranzaViewSet)
-router.register('dependientes', views.DependienteViewSet)
 router.register('gastos', views.GastoViewSet)
 router.register('historial-medico', views.HistorialMedicoViewSet)
 router.register('usuarios', views.UsuarioViewSet)

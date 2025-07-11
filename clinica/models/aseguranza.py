@@ -10,6 +10,17 @@ class Aseguranza(models.Model):
         blank=True,
         help_text='Nombre de la aseguranza')
     
+    grupo = models.CharField(
+        max_length=150,
+        null=True,
+        blank=True
+        )
+    
+    servicios = models.TextField(
+        null=True,
+        blank=True,
+    )
+    
     class Meta:
         db_table = 'aseguranzas'
         ordering = ['pk']

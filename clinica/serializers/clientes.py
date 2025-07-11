@@ -20,7 +20,7 @@ class ClienteModelSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'id_aseguranza',
-            'es_principal',
+            'es_titular',
             'nombre',
             'apellido_paterno',
             'apellido_materno',

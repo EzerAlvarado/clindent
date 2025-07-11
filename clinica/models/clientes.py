@@ -12,7 +12,7 @@ class Cliente(models.Model):
         help_text='id de con el que esta ligado la aseguranza',
     )
     
-    es_principal = models.BooleanField(
+    es_titular = models.BooleanField(
         default=False,
         help_text='Indica si es el principal de la cuenta o dependiente'
     )
@@ -91,6 +91,13 @@ class Cliente(models.Model):
         null=True,
         blank=True,
         help_text='Campo editable para la cantidad que dinero disponible por el cliente')
+    
+    titular = models.ForeignKey(
+        'self',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='dependientes')
     
     class Meta:
         db_table = 'clientes'

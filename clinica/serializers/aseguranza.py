@@ -19,6 +19,8 @@ class AseguranzaModelSerializer(serializers.ModelSerializer):
         model = Aseguranza
         fields = (
             'id',
+            'servicios',
+            'grupo',
             'nombre',
         )
         read_only_fields = ('id',)
