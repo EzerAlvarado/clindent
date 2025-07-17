@@ -21,6 +21,13 @@ class Aseguranza(models.Model):
         blank=True,
     )
     
+    grupo = models.ForeignKey(
+        'clinica.Grupo',
+        null=True,
+        blank=True,
+        on_delete=models.DO_NOTHING, 
+        related_name='aseguranzas')
+    
     class Meta:
         db_table = 'aseguranzas'
         ordering = ['pk']
