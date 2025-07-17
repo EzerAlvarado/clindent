@@ -29,7 +29,6 @@ class ClienteAdmin(admin.ModelAdmin):
 @admin.register(models.Aseguranza)
 class AseguranzaAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'grupo', 'servicios')
-    raw_id_fields = ('grupo',)
 
 
 @admin.register(models.Grupo)

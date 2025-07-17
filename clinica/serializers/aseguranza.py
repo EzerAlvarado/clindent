@@ -20,7 +20,7 @@ class AseguranzaModelSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'servicios',
-            'grupo',
+            'grupos',
             'nombre',
         )
         read_only_fields = ('id',)

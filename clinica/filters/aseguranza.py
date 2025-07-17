@@ -12,7 +12,7 @@ class AseguranzaFilter(filters.FilterSet):
         model = Aseguranza
         fields = (
             'id',
-            'grupo',
+            'grupos',
             'servicios',
             'nombre',
         )
