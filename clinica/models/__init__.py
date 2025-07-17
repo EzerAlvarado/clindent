@@ -6,4 +6,5 @@ from .usuarios import Usuario
 from .aseguranza import Aseguranza
 from .historial_medico import HistorialMedico
 from .gasto import Gasto
-from .grupos import Grupo 
+from .grupos import Grupo
+from .claims import Claim

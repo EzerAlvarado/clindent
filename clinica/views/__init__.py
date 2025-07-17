@@ -5,3 +5,4 @@ from .aseguranza import AseguranzaViewSet
 from .gastos import GastoViewSet
 from .historial_medico import HistorialMedicoViewSet
 from .grupos import GrupoViewSet
+from .claims import ClaimViewSet

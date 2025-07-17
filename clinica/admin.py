@@ -42,6 +42,14 @@ class HistorialMedicoAdmin(admin.ModelAdmin):
     list_filter = ('fecha', 'reclamo_enviado')
     raw_id_fields = ('cliente',)
     search_fields = ('descripcion', 'cliente__nombre_completo')
+    
+    
+@admin.register(models.Claim)
+class ClaimAdmin(admin.ModelAdmin):
+    list_display = ('principal', 'id_aseguranza', 'fecha_envio', 'medio_de_envio', 'estado')
+    list_filter = ('fecha_envio', )
+    raw_id_fields = ('principal', 'paciente','aseguranza')
+    search_fields = ('estado',)
 
 
 @admin.register(models.Gasto)
