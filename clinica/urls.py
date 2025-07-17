@@ -8,5 +8,7 @@ router.register('aseguranzas', views.AseguranzaViewSet)
 router.register('gastos', views.GastoViewSet)
 router.register('historial-medico', views.HistorialMedicoViewSet)
 router.register('usuarios', views.UsuarioViewSet)
+router.register('claims', views.ClaimViewSet)
+router.register('grupos', views.GastoViewSet)
 
 urlpatterns = router.urls
