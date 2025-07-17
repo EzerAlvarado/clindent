@@ -9,6 +9,9 @@ from rest_framework import serializers
 # Models
 from clinica.models import Aseguranza
 
+#utils
+from clinica.serializers.grupos import GrupoModelSerializer
+
 class AseguranzaModelSerializer(serializers.ModelSerializer):
     """
         serializer para crear, editar, obtener y eliminar
@@ -24,3 +27,8 @@ class AseguranzaModelSerializer(serializers.ModelSerializer):
             'nombre',
         )
         read_only_fields = ('id',)
+        
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        data['grupos'] = GrupoModelSerializer(instance.grupos.all(), many=True).data
+        return data
