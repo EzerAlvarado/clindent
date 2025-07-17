@@ -19,6 +19,7 @@ class ClienteFilter(filters.FilterSet):
             'apellido_materno',
             'nombre_completo',
             'correo',
+            'titular',
             'numero_celular',
             'grupo',
             'trabajo',

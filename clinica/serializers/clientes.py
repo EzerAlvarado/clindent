@@ -32,6 +32,7 @@ class ClienteModelSerializer(serializers.ModelSerializer):
             'numero_telefonico',
             'direccion',
             'aseguranza',
+            'titular',
             'cobertura_dental',
         )
         read_only_fields = ('id',)
