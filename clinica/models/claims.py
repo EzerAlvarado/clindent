@@ -49,11 +49,15 @@ class Claim(models.Model):
     )
     
     claim_enviado = models.FileField(
-        upload_to='claims/enviados/'
+        upload_to='claims/enviados/',
+        null=True,
+        blank=True
         )
     
     pagos = models.FileField(
-        upload_to='claims/pagos/'
+        upload_to='claims/pagos/',
+        null=True,
+        blank=True
         )
     
     fecha_envio = models.DateField(
