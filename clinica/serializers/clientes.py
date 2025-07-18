@@ -24,6 +24,7 @@ class ClienteModelSerializer(serializers.ModelSerializer):
             'nombre',
             'apellido_paterno',
             'apellido_materno',
+            'fecha_de_nacimiento',
             'nombre_completo',
             'correo',
             'numero_celular',

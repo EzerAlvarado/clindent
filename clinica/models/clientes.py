@@ -56,6 +56,11 @@ class Cliente(models.Model):
         blank=True
     )
     
+    fecha_de_nacimiento = models.DateField(
+        null=True,
+        blank=True,
+    )
+    
     grupo = models.CharField(
         max_length=50,
         null=True,

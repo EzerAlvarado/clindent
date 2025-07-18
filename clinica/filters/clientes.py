@@ -17,6 +17,7 @@ class ClienteFilter(filters.FilterSet):
             'nombre',
             'apellido_paterno',
             'apellido_materno',
+            'fecha_de_nacimiento',
             'nombre_completo',
             'correo',
             'titular',
