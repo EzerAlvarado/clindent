@@ -22,6 +22,8 @@ class HistorialMedicoModelSerializer(serializers.ModelSerializer):
             'cliente',
             'descripcion',
             'costo',
+            'cobertura',
+            'deducible',
             'reclamo_enviado',
             'fecha',
         )

@@ -15,6 +15,8 @@ class HistorialMedicoFilter(filters.FilterSet):
             'cliente',
             'descripcion',
             'costo',
+            'cobertura',
+            'deducible',
             'reclamo_enviado',
             'fecha',
         )

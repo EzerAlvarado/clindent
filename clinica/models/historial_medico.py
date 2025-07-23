@@ -21,11 +21,25 @@ class HistorialMedico(models.Model):
         blank=True,)
     
     costo = models.DecimalField(
-        max_digits=10, 
+        max_digits=20, 
         decimal_places=2,
         null=True,
         blank=True,
-        help_text='Costo del procedimiento')
+    )
+    
+    cobertura = models.DecimalField(
+        max_digits=20, 
+        decimal_places=2,
+        null=True,
+        blank=True,
+    )
+    
+    deducible = models.DecimalField(
+        max_digits=20, 
+        decimal_places=2,
+        null=True,
+        blank=True,
+    )
     
     reclamo_enviado = models.BooleanField(
         default=False,
