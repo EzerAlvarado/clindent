@@ -28,3 +28,13 @@ class HistorialMedicoModelSerializer(serializers.ModelSerializer):
             'fecha',
         )
         read_only_fields = ('id',)
+        
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+
+        if instance.paciente:
+            data['cliente'] = {
+                'id': instance.paciente.id,
+                'nombre_completo': instance.paciente.nombre_completo,
+            }
+        return data 

@@ -35,3 +35,20 @@ class ClaimModelSerializer(serializers.ModelSerializer):
             'notas',
         )
         read_only_fields = ('id',)
+        
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+
+        if instance.paciente:
+            data['paciente'] = {
+                'id': instance.paciente.id,
+                'nombre_completo': instance.paciente.nombre_completo,
+            }
+
+        if instance.aseguranza:
+            data['aseguranza'] = {
+                'id': instance.aseguranza.id,
+                'nombre': instance.aseguranza.nombre,
+            }
+
+        return data
