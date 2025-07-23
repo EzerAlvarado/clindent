@@ -32,9 +32,9 @@ class HistorialMedicoModelSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         data = super().to_representation(instance)
 
-        if instance.paciente:
+        if instance.cliente:
             data['cliente'] = {
-                'id': instance.paciente.id,
-                'nombre_completo': instance.paciente.nombre_completo,
+                'id': instance.cliente.id,
+                'nombre_completo': instance.cliente.nombre_completo,
             }
         return data 
