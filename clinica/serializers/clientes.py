@@ -9,11 +9,16 @@ from rest_framework import serializers
 # Models
 from clinica.models import Cliente
 
+class ClienteDependienteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Cliente
+        fields = (
+            'id', 'nombre', 'apellido_paterno', 'apellido_materno', 'fecha_de_nacimiento', 'nombre_completo', 'correo', 'numero_celular'
+        )
+
 class ClienteModelSerializer(serializers.ModelSerializer):
-    """
-        serializer para crear, editar, obtener y eliminar
-        a un Cliente
-    """
+    titular = ClienteDependienteSerializer(read_only=True)
+    dependientes = serializers.SerializerMethodField()
 
     class Meta:
         model = Cliente
@@ -35,5 +40,10 @@ class ClienteModelSerializer(serializers.ModelSerializer):
             'aseguranza',
             'titular',
             'cobertura_dental',
+            'dependientes',
         )
         read_only_fields = ('id',)
+
+    def get_dependientes(self, obj):
+        dependientes = obj.obtener_dependientes()
+        return ClienteDependienteSerializer(dependientes, many=True).data

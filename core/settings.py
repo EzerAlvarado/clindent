@@ -41,6 +41,7 @@ BASE_APPS = [
 THIRD_APPS = [
     'rest_framework',
     'corsheaders',
+    'django_extensions',
 ]
 
 OWN_APPS = [

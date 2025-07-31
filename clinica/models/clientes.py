@@ -113,6 +113,18 @@ class Cliente(models.Model):
             ['autorizar_cliente', f'Puede Autorizar {verbose_name_plural}'],
             ['viewcrud_cliente', f'Puede Visualizar {verbose_name_plural} en el menú'],
         ]
+        indexes = [
+            models.Index(fields=['nombre'], name='idx_nombre'),
+            models.Index(fields=['apellido_paterno'], name='idx_apellido_paterno'),
+            models.Index(fields=['apellido_materno'], name='idx_apellido_materno'),
+        ]
 
     def __str__(self):
         return f"Pk: {self.pk} | Nombre Paciente: {self.nombre} | ID Aseguranza : {self.id_aseguranza}"
+
+    def obtener_dependientes(self):
+        if self.es_titular:
+            return self.dependientes.all().order_by('id')
+        elif self.titular:
+            return self.titular.dependientes.all().order_by('id')
+        return []

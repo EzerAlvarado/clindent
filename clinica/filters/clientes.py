@@ -8,6 +8,9 @@ from clinica.models import Cliente
 
 
 class ClienteFilter(filters.FilterSet):
+    nombre = filters.CharFilter(field_name='nombre', lookup_expr='icontains')
+    apellido_paterno = filters.CharFilter(field_name='apellido_paterno', lookup_expr='icontains')
+    apellido_materno = filters.CharFilter(field_name='apellido_materno', lookup_expr='icontains')
     class Meta:
         model = Cliente
         fields = (
