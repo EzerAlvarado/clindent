@@ -15,6 +15,7 @@ class UsuarioFilter(filters.FilterSet):
             'clave',
             'puede_editar',
             'username',
+            'es_admin',
             'first_name',
             'last_name',
             'email',

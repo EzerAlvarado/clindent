@@ -22,6 +22,7 @@ class UsuarioModelSerializer(serializers.ModelSerializer):
             'clave',
             'puede_editar',
             'username',
+            'es_admin',
             'first_name',
             'last_name',
             'email',
