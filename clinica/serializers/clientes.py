@@ -17,7 +17,7 @@ class ClienteDependienteSerializer(serializers.ModelSerializer):
         )
 
 class ClienteModelSerializer(serializers.ModelSerializer):
-    titular = ClienteDependienteSerializer(read_only=True)
+    titular = ClienteDependienteSerializer()
     dependientes = serializers.SerializerMethodField()
 
     class Meta:
