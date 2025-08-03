@@ -123,8 +123,55 @@ class Cliente(models.Model):
         return f"Pk: {self.pk} | Nombre Paciente: {self.nombre} | ID Aseguranza : {self.id_aseguranza}"
 
     def obtener_dependientes(self):
+        """
+        Obtiene los dependientes del cliente:
+        - Si es titular: retorna sus dependientes directos
+        - Si es dependiente: retorna los dependientes de su titular (incluyéndose a sí mismo)
+        """
         if self.es_titular:
             return self.dependientes.all().order_by('id')
         elif self.titular:
             return self.titular.dependientes.all().order_by('id')
         return []
+    
+    def obtener_titular(self):
+        """
+        Obtiene el titular del cliente:
+        - Si es titular: retorna None
+        - Si es dependiente: retorna su titular
+        """
+        if self.es_titular:
+            return None
+        return self.titular
+    
+    def es_dependiente_de(self, cliente):
+        """
+        Verifica si este cliente es dependiente del cliente especificado
+        """
+        if not self.es_titular and self.titular:
+            return self.titular == cliente
+        return False
+    
+    def tiene_dependientes(self):
+        """
+        Verifica si el cliente tiene dependientes
+        """
+        if self.es_titular:
+            return self.dependientes.exists()
+        return False
+    
+    def get_familia_completa(self):
+        """
+        Obtiene toda la familia (titular + dependientes)
+        """
+        if self.es_titular:
+            # Si es titular, retorna él mismo + sus dependientes
+            familia = [self] + list(self.dependientes.all())
+        elif self.titular:
+            # Si es dependiente, retorna su titular + todos los dependientes del titular
+            familia = [self.titular] + list(self.titular.dependientes.all())
+        else:
+            # Cliente sin relación familiar
+            familia = [self]
+        
+        return sorted(familia, key=lambda x: x.id)
