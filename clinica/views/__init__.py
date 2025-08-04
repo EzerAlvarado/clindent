@@ -1,8 +1,11 @@
 # Create your models here.
-from .clientes import ClienteViewSet
-from .usuarios import UsuarioViewSet
 from .aseguranza import AseguranzaViewSet
+from .clientes import ClienteViewSet
 from .gastos import GastoViewSet
-from .historial_medico import HistorialMedicoViewSet
 from .grupos import GrupoViewSet
+from .historial_medico import HistorialMedicoViewSet
+from .usuarios import UsuarioViewSet
 from .claims import ClaimViewSet
+
+# Importar vistas de autenticación
+from . import auth
